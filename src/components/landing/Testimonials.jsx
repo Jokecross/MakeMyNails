@@ -3,7 +3,7 @@ import { Star } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const ratings = [5, 5, 5, 4]
-const avatars = ['/1.jpg', '/2.jpg', '/3.jpg', '/4.jpg']
+const avatars = ['/profile-1.webp', '/profile-2.webp', '/profile-3.webp', '/profile-4.webp']
 
 export default function Testimonials() {
   const { t } = useTranslation()

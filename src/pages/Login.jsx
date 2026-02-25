@@ -2,9 +2,11 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Eye, EyeOff } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../contexts/AuthContext'
 
 export default function Login() {
+  const { t } = useTranslation()
   const { login, signup, isAuthenticated } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
@@ -51,7 +53,7 @@ export default function Login() {
       <div className="px-4 pt-6 pb-2">
         <Link to="/" className="inline-flex items-center gap-2 text-brown-light/60 hover:text-brown transition-colors">
           <ArrowLeft className="w-4 h-4" />
-          <span className="text-sm">Retour</span>
+          <span className="text-sm">{t('auth.back')}</span>
         </Link>
       </div>
 
@@ -65,15 +67,15 @@ export default function Login() {
           {/* Logo */}
           <div className="text-center mb-8">
             <Link to="/">
-              <img src="/logo.png" alt="MakeMyNails" className="w-16 h-16 rounded-2xl object-cover mx-auto mb-4 shadow-lg shadow-nude-dark/20" />
+              <img src="/logo.webp" alt="MakeMyNails" className="w-16 h-16 rounded-2xl object-cover mx-auto mb-4 shadow-lg shadow-nude-dark/20" />
             </Link>
             <h1 className="font-heading text-3xl font-bold text-brown mb-1">
-              {mode === 'login' ? 'Bon retour !' : 'Crée ton compte'}
+              {mode === 'login' ? t('auth.loginTitle') : t('auth.signupTitle')}
             </h1>
             <p className="text-brown-light/60 text-sm">
               {mode === 'login'
-                ? 'Connecte-toi pour voir tes créations'
-                : 'Gratuit et découvre ton résultat instantanément'}
+                ? t('auth.loginSubtitle')
+                : t('auth.signupSubtitle')}
             </p>
           </div>
 
@@ -85,7 +87,7 @@ export default function Login() {
                 mode === 'login' ? 'bg-white text-brown shadow-sm' : 'text-brown-light/60 hover:text-brown'
               }`}
             >
-              Se connecter
+              {t('auth.tabLogin')}
             </button>
             <button
               onClick={() => { setMode('signup'); setError('') }}
@@ -93,7 +95,7 @@ export default function Login() {
                 mode === 'signup' ? 'bg-white text-brown shadow-sm' : 'text-brown-light/60 hover:text-brown'
               }`}
             >
-              S'inscrire
+              {t('auth.tabSignup')}
             </button>
           </div>
 
@@ -107,7 +109,7 @@ export default function Login() {
               >
                 <input
                   type="text"
-                  placeholder="Ton prénom"
+                  placeholder={t('auth.namePlaceholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3.5 rounded-2xl border border-nude/50 bg-white text-brown text-sm focus:outline-none focus:ring-2 focus:ring-beige/50 placeholder:text-brown-light/40"
@@ -117,7 +119,7 @@ export default function Login() {
 
             <input
               type="email"
-              placeholder="Email"
+              placeholder={t('auth.emailPlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -128,7 +130,7 @@ export default function Login() {
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
-                placeholder="Mot de passe"
+                placeholder={t('auth.passwordPlaceholder')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -167,16 +169,16 @@ export default function Login() {
                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     className="w-4 h-4 border-2 border-offwhite/30 border-t-offwhite rounded-full"
                   />
-                  Chargement…
+                  {t('auth.loading')}
                 </span>
-              ) : mode === 'login' ? 'Me connecter' : 'Créer mon compte gratuit'}
+              ) : mode === 'login' ? t('auth.loginCta') : t('auth.signupCta')}
             </button>
           </form>
 
           {/* Footer note */}
           {mode === 'signup' && (
             <p className="text-center text-xs text-brown-light/40 mt-4">
-              En créant un compte, tu acceptes nos conditions d'utilisation.
+              {t('auth.terms')}
             </p>
           )}
         </motion.div>

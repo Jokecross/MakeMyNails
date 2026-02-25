@@ -9,7 +9,7 @@
     "badge": "💅 Your perfect nails, finally.",
     "title": "Fall in love",
     "titleItalic": "with your nails",
-    "titleSuffix": "before you even have them",
+    "titleSuffix": "before you even have them.",
     "subtitle": "Take a photo of your hands, choose your style and see the result in seconds. On your real hands.",
     "cta": "Try on my hands",
     "howItWorks": "See examples",
@@ -132,7 +132,7 @@
       "recommendationBanner": "No idea? <bold>Let Emma choose for you</bold>",
       "teaserTitle": "Personalized recommendations",
       "teaserBadge": "Available with an account",
-      "teaserDescription": "Create your free account to unlock Emma — your style assistant who recommends the perfect nails for your occasion and preferences.",
+      "teaserDescription": "Create your free account to unlock Emma, your style assistant who recommends the perfect nails for your occasion and preferences.",
       "teaserStep1": "Send a photo of your hand",
       "teaserStep2": "Tell us the occasion",
       "teaserStep3": "Get tailor-made styles",
@@ -279,6 +279,22 @@
   "footer": {
     "tagline": "Never leave the salon with regrets again.",
     "rights": "© 2025 MakeMyNails. All rights reserved."
+  },
+  "auth": {
+    "back": "Back",
+    "loginTitle": "Welcome back!",
+    "signupTitle": "Create your account",
+    "loginSubtitle": "Log in to see your creations",
+    "signupSubtitle": "Free, discover your result instantly",
+    "tabLogin": "Log in",
+    "tabSignup": "Sign up",
+    "namePlaceholder": "Your first name",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "loading": "Loading…",
+    "loginCta": "Log in",
+    "signupCta": "Create my free account",
+    "terms": "By creating an account, you agree to our terms of service."
   },
   "common": {
     "back": "Back",

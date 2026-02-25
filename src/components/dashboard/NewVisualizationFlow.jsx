@@ -313,7 +313,7 @@ export default function NewVisualizationFlow({ open, onClose }) {
           {step === 4 && (
             <motion.div key="processing" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex-1 flex flex-col items-center justify-center px-6 min-h-[70vh]">
               <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: 'linear' }} className="w-16 h-16 mb-6">
-                <img src="/logo.png" alt="MakeMyNails" className="w-full h-full rounded-2xl object-cover shadow-lg shadow-nude-dark/20" />
+                <img src="/logo.webp" alt="MakeMyNails" className="w-full h-full rounded-2xl object-cover shadow-lg shadow-nude-dark/20" />
               </motion.div>
               <h2 className="font-heading text-2xl font-bold text-brown mb-4">Création en cours…</h2>
               <AnimatePresence mode="wait">

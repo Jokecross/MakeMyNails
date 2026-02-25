@@ -38,7 +38,7 @@ export default function Processing({ onComplete }) {
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
         className="w-20 h-20 mb-8"
       >
-        <img src="/logo.png" alt="MakeMyNails" className="w-full h-full rounded-3xl object-cover shadow-lg shadow-nude-dark/20" />
+        <img src="/logo.webp" alt="MakeMyNails" className="w-full h-full rounded-3xl object-cover shadow-lg shadow-nude-dark/20" />
       </motion.div>
 
       <h2 className="font-heading text-3xl font-bold text-brown mb-6">

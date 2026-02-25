@@ -35,7 +35,7 @@ export default function CreditCounter() {
             {isSubscribed ? (
               <Crown className="w-7 h-7 text-beige" />
             ) : (
-              <img src="/logo.png" alt="MakeMyNails" className="w-10 h-10 rounded-xl object-cover opacity-80" />
+              <img src="/logo.webp" alt="MakeMyNails" className="w-10 h-10 rounded-xl object-cover opacity-80" />
             )}
           </div>
         </div>

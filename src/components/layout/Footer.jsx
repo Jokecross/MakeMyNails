@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover opacity-90" />
+              <img src="/logo.webp" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover opacity-90" />
               <span className="font-heading text-2xl font-semibold text-offwhite">MakeMyNails</span>
             </div>
             <p className="text-offwhite/60 leading-relaxed max-w-sm">

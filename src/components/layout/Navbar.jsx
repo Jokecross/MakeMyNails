@@ -24,13 +24,13 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="max-w-lg mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/app" className="flex items-center gap-2">
-            <img src="/logo.png" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover" />
+            <img src="/logo.webp" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover" />
             <span className="font-heading text-xl font-semibold text-brown">MakeMyNails</span>
           </Link>
 
           <div className="flex items-center gap-3">
             <Link to="/app/purchase" className="flex items-center gap-1.5 bg-nude/60 px-3 py-1.5 rounded-full">
-              <img src="/logo.png" alt="" className="w-4 h-4 rounded-md object-cover" />
+              <img src="/logo.webp" alt="" className="w-4 h-4 rounded-md object-cover" />
               <span className="text-sm font-semibold text-brown">{credits}</span>
             </Link>
 

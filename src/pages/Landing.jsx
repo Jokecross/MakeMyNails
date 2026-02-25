@@ -37,7 +37,7 @@ export default function Landing() {
       <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover" />
+            <img src="/logo.webp" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover" />
             <span className="font-heading text-xl font-semibold text-brown">MakeMyNails</span>
           </div>
           <div className="hidden md:flex items-center gap-8">

@@ -18,7 +18,7 @@ export default function Welcome({ onNext }) {
           transition={{ duration: 3, repeat: Infinity, repeatDelay: 3 }}
           className="mx-auto mb-8"
         >
-          <img src="/logo.png" alt="MakeMyNails" className="w-24 h-24 rounded-3xl object-cover shadow-lg shadow-nude-dark/20 mx-auto" />
+          <img src="/logo.webp" alt="MakeMyNails" className="w-24 h-24 rounded-3xl object-cover shadow-lg shadow-nude-dark/20 mx-auto" />
         </motion.div>
 
         <motion.h1

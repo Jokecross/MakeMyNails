@@ -10,20 +10,20 @@ export default function Hero() {
   const [current, setCurrent] = useState(0)
 
   const afterImages = [
-    '/after 1.png',
-    '/after 2.png',
-    '/After 3.png',
-    '/after 4.jpg',
-    '/after 5.png',
-    '/after 6.jpg',
-    '/after 7.jpg',
-    '/after 8.jpg',
-    '/after 9.jpg',
-    '/after 10.jpg',
-    '/after 11.jpg',
-    '/after 12.jpg',
-    '/after 13.jpg',
-    '/after 14.jpg',
+    '/after-1.webp',
+    '/after-2.webp',
+    '/after-3.webp',
+    '/after-4.webp',
+    '/after-5.webp',
+    '/after-6.webp',
+    '/after-7.webp',
+    '/after-8.webp',
+    '/after-9.webp',
+    '/after-10.webp',
+    '/after-11.webp',
+    '/after-12.webp',
+    '/after-13.webp',
+    '/after-14.webp',
   ]
 
   const examples = afterImages.map((src, i) => ({
@@ -93,20 +93,23 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-[2rem] overflow-hidden">
                 <div className="grid grid-cols-2 h-full gap-1">
                   <div className="relative">
-                    <img src="/before.png" alt={t('hero.before')} className="w-full h-full object-cover" />
+                    <img src="/before.webp" alt={t('hero.before')} className="w-full h-full object-cover" />
                     <span className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white/80 uppercase tracking-wider drop-shadow">{t('hero.before')}</span>
                   </div>
                   <div className="relative overflow-hidden">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence>
                       <motion.img
                         key={current}
                         src={examples[current].after}
                         alt={t('hero.after')}
-                        className="w-full h-full object-cover"
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.5 }}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, scale: 1.05 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                          opacity: { duration: 0.8, ease: 'easeInOut' },
+                          scale: { duration: 3.5, ease: 'linear' },
+                        }}
                       />
                     </AnimatePresence>
                     <span className="absolute bottom-3 left-0 right-0 text-center text-xs font-medium text-white/80 uppercase tracking-wider drop-shadow z-10">{t('hero.after')}</span>

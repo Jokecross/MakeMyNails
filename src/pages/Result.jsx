@@ -104,7 +104,7 @@ export default function Result() {
               transition={{ type: 'spring', delay: 0.2 }}
               className="mx-auto mb-3"
             >
-              <img src="/logo.png" alt="MakeMyNails" className="w-14 h-14 rounded-2xl object-cover shadow-lg shadow-nude-dark/20 mx-auto" />
+              <img src="/logo.webp" alt="MakeMyNails" className="w-14 h-14 rounded-2xl object-cover shadow-lg shadow-nude-dark/20 mx-auto" />
             </motion.div>
             <h1 className="font-heading text-2xl font-bold text-brown mb-1">{t('result.ready')}</h1>
             <p className="text-brown-light/60 text-xs">{t('result.preview')}</p>

@@ -129,7 +129,7 @@ export default function Profile() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-nude/30 rounded-xl flex items-center justify-center overflow-hidden">
-                <img src="/logo.png" alt="MakeMyNails" className="w-full h-full object-cover" />
+                <img src="/logo.webp" alt="MakeMyNails" className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-medium text-brown">Tes looks</p>

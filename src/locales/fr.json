@@ -9,7 +9,7 @@
     "badge": "💅 Tes ongles parfaits, enfin.",
     "title": "Tombe amoureuse",
     "titleItalic": "de tes ongles",
-    "titleSuffix": "avant même de les avoir",
+    "titleSuffix": "avant même de les avoir.",
     "subtitle": "Prends une photo de tes mains, choisis ton style et vois le résultat en quelques secondes. Sur tes vraies mains.",
     "cta": "Essayer sur mes mains",
     "howItWorks": "Voir des exemples",
@@ -121,7 +121,7 @@
   "onboarding": {
     "welcome": {
       "title": "Bienvenue sur\nMakeMyNails",
-      "subtitle": "Vois tes ongles parfaits avant même ton rendez-vous — gratuit et en 30 secondes",
+      "subtitle": "Vois tes ongles parfaits avant même ton rendez-vous, gratuit et en 30 secondes",
       "cta": "Essayer maintenant"
     },
     "photo": {
@@ -132,7 +132,7 @@
       "recommendationBanner": "Pas d'idée ? <bold>Laisse Emma choisir pour toi</bold>",
       "teaserTitle": "Recommandations personnalisées",
       "teaserBadge": "Disponible avec un compte",
-      "teaserDescription": "Crée ton compte gratuit pour débloquer Emma — ton assistante style qui te recommande les ongles parfaits selon ton occasion et tes envies.",
+      "teaserDescription": "Crée ton compte gratuit pour débloquer Emma, ton assistante style qui te recommande les ongles parfaits selon ton occasion et tes envies.",
       "teaserStep1": "Envoie une photo de ta main",
       "teaserStep2": "Dis-nous l'occasion",
       "teaserStep3": "Reçois des styles sur-mesure",
@@ -279,6 +279,22 @@
   "footer": {
     "tagline": "Plus jamais de mauvaises surprises chez ta prothésiste.",
     "rights": "© 2025 MakeMyNails. Tous droits réservés."
+  },
+  "auth": {
+    "back": "Retour",
+    "loginTitle": "Bon retour !",
+    "signupTitle": "Crée ton compte",
+    "loginSubtitle": "Connecte-toi pour voir tes créations",
+    "signupSubtitle": "Gratuit et découvre ton résultat instantanément",
+    "tabLogin": "Se connecter",
+    "tabSignup": "S'inscrire",
+    "namePlaceholder": "Ton prénom",
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Mot de passe",
+    "loading": "Chargement…",
+    "loginCta": "Me connecter",
+    "signupCta": "Créer mon compte gratuit",
+    "terms": "En créant un compte, tu acceptes nos conditions d'utilisation."
   },
   "common": {
     "back": "Retour",
