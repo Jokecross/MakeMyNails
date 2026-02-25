@@ -2,9 +2,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { User, Home, History, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useCredits } from '../../contexts/CreditContext'
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const { credits } = useCredits()
   const location = useLocation()
@@ -14,9 +16,9 @@ export default function Navbar() {
   if (!isApp) return null
 
   const links = [
-    { to: '/app', icon: Home, label: 'Accueil' },
-    { to: '/app/history', icon: History, label: 'Historique' },
-    { to: '/app/profile', icon: User, label: 'Profil' },
+    { to: '/app', icon: Home, label: t('appNav.home') },
+    { to: '/app/history', icon: History, label: t('appNav.history') },
+    { to: '/app/profile', icon: User, label: t('appNav.profile') },
   ]
 
   return (

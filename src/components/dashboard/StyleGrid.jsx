@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const inspirations = [
   {
@@ -47,6 +48,7 @@ const inspirations = [
 ]
 
 export default function StyleGrid() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   const handleClick = (item) => {
@@ -59,7 +61,7 @@ export default function StyleGrid() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
     >
-      <h3 className="font-heading text-xl font-semibold text-brown mb-3">Inspirations</h3>
+      <h3 className="font-heading text-xl font-semibold text-brown mb-3">{t('styleGrid.title')}</h3>
       <div className="grid grid-cols-3 gap-3">
         {inspirations.map((item, i) => (
           <motion.button

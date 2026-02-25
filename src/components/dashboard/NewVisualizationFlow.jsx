@@ -2,43 +2,17 @@ import { useState, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Camera, Upload, Image, Pencil, ImagePlus, ArrowLeft } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import Button from '../common/Button'
 import { generateNailVisualization } from '../../lib/api'
 import { useCredits } from '../../contexts/CreditContext'
 
-const shapes = [
-  { id: 'almond', name: 'Amande', desc: 'Féminin et doux' },
-  { id: 'square', name: 'Carré', desc: 'Classique et net' },
-  { id: 'stiletto', name: 'Stiletto', desc: 'Audacieux et pointu' },
-  { id: 'coffin', name: 'Coffin', desc: 'Tendance et chic' },
-  { id: 'oval', name: 'Ovale', desc: 'Naturel et élégant' },
-  { id: 'ballerina', name: 'Ballerine', desc: 'Long et raffiné' },
-]
-
-const styles = [
-  { id: 'french', name: 'French', desc: 'Intemporel' },
-  { id: 'color', name: 'Couleur unie', desc: 'Simple et chic' },
-  { id: 'nailart', name: 'Nail Art', desc: 'Créatif et unique' },
-  { id: 'gradient', name: 'Dégradé', desc: 'Doux et tendance' },
-  { id: 'minimalist', name: 'Minimaliste', desc: 'Épuré et moderne' },
-  { id: 'chrome', name: 'Chrome', desc: 'Brillant et futuriste' },
-]
-
-const lengths = [
-  { id: 'short', name: 'Court', desc: 'Pratique au quotidien' },
-  { id: 'medium', name: 'Moyen', desc: 'Polyvalent et élégant' },
-  { id: 'long', name: 'Long', desc: 'Glamour et audacieux' },
-]
-
-const processingMessages = [
-  'Analyse de ta photo…',
-  'Application du style choisi…',
-  'Création de ton look…',
-  'Ajustements finaux…',
-  'Presque terminé…',
-]
+const shapeIds = ['almond', 'square', 'stiletto', 'coffin', 'oval', 'ballerina']
+const styleIds = ['french', 'color', 'nailart', 'gradient', 'minimalist', 'chrome']
+const lengthIds = ['short', 'medium', 'long']
 
 export default function NewVisualizationFlow({ open, onClose }) {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { canGenerate, createVisualization, completeVisualization, uploadBlobUrl } = useCredits()
   const [step, setStep] = useState(0)
@@ -82,7 +56,7 @@ export default function NewVisualizationFlow({ open, onClose }) {
     setStep(4)
 
     const msgInterval = setInterval(() => {
-      setMsgIndex((prev) => (prev + 1) % processingMessages.length)
+      setMsgIndex((prev) => (prev + 1) % t('flow.processingMessages', { returnObjects: true }).length)
     }, 1500)
 
     try {
@@ -121,7 +95,7 @@ export default function NewVisualizationFlow({ open, onClose }) {
 
   if (!open) return null
 
-  const stepTitles = ['Ta photo', 'Forme', 'Style', 'Longueur', 'Création…']
+  const stepTitles = [t('flow.stepPhoto'), t('flow.stepShape'), t('flow.stepStyle'), t('flow.stepLength'), t('flow.stepProcessing')]
   const progressPercent = step < 4 ? ((step + 1) / 4) * 100 : 100
 
   return (
@@ -139,7 +113,7 @@ export default function NewVisualizationFlow({ open, onClose }) {
             className="flex items-center gap-1.5 text-brown-light/60 hover:text-brown transition-colors"
           >
             {step === 0 ? <X className="w-5 h-5" /> : <ArrowLeft className="w-5 h-5" />}
-            <span className="text-sm">{step === 0 ? 'Fermer' : 'Retour'}</span>
+            <span className="text-sm">{step === 0 ? t('flow.close') : t('flow.back')}</span>
           </button>
           <span className="text-xs text-brown-light/40 font-medium">{stepTitles[step]}</span>
           <div className="w-16" />
@@ -165,8 +139,8 @@ export default function NewVisualizationFlow({ open, onClose }) {
           {/* STEP 0 — Photo */}
           {step === 0 && (
             <motion.div key="photo" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="px-6 py-8 flex flex-col items-center max-w-md mx-auto w-full">
-              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">Importe ta photo</h2>
-              <p className="text-brown-light/60 text-sm mb-6 text-center">Photographie tes mains pour commencer</p>
+              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">{t('flow.photoTitle')}</h2>
+              <p className="text-brown-light/60 text-sm mb-6 text-center">{t('flow.photoSubtitle')}</p>
 
               {data.photo ? (
                 <div className="w-full rounded-3xl mb-6 shadow-lg overflow-hidden">
@@ -179,10 +153,10 @@ export default function NewVisualizationFlow({ open, onClose }) {
                   </div>
                   <div className="flex gap-3">
                     <button onClick={() => cameraRef.current?.click()} className="flex items-center gap-2 bg-brown text-offwhite px-5 py-3 rounded-2xl font-medium text-sm">
-                      <Camera className="w-4 h-4" /> Photo
+                      <Camera className="w-4 h-4" /> {t('flow.photoBtn')}
                     </button>
                     <button onClick={() => fileRef.current?.click()} className="flex items-center gap-2 bg-nude text-brown px-5 py-3 rounded-2xl font-medium text-sm">
-                      <Upload className="w-4 h-4" /> Galerie
+                      <Upload className="w-4 h-4" /> {t('flow.galleryBtn')}
                     </button>
                   </div>
                 </div>
@@ -191,48 +165,48 @@ export default function NewVisualizationFlow({ open, onClose }) {
               <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} className="hidden" />
               <input ref={cameraRef} type="file" accept="image/*" capture="environment" onChange={handleFile} className="hidden" />
 
-              <Button onClick={next} disabled={!data.photo} className="w-full">Continuer</Button>
+              <Button onClick={next} disabled={!data.photo} className="w-full">{t('flow.continue')}</Button>
             </motion.div>
           )}
 
           {/* STEP 1 — Shape */}
           {step === 1 && (
             <motion.div key="shape" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="px-6 py-8 max-w-md mx-auto w-full">
-              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">Forme des ongles</h2>
-              <p className="text-brown-light/60 text-sm mb-6 text-center">Quelle forme te fait envie ?</p>
+              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">{t('flow.shapeTitle')}</h2>
+              <p className="text-brown-light/60 text-sm mb-6 text-center">{t('flow.shapeSubtitle')}</p>
 
               <div className="grid grid-cols-2 gap-3 mb-6">
-                {shapes.map((s) => (
+                {shapeIds.map((id) => (
                   <button
-                    key={s.id}
-                    onClick={() => setData((d) => ({ ...d, shape: s.id }))}
-                    className={`p-4 rounded-2xl text-center transition-all ${data.shape === s.id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
+                    key={id}
+                    onClick={() => setData((d) => ({ ...d, shape: id }))}
+                    className={`p-4 rounded-2xl text-center transition-all ${data.shape === id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
                   >
-                    <span className={`font-heading font-semibold text-sm block ${data.shape === s.id ? 'text-offwhite' : 'text-brown'}`}>{s.name}</span>
-                    <span className={`text-xs block mt-0.5 ${data.shape === s.id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{s.desc}</span>
+                    <span className={`font-heading font-semibold text-sm block ${data.shape === id ? 'text-offwhite' : 'text-brown'}`}>{t(`flow.shapes.${id}.name`)}</span>
+                    <span className={`text-xs block mt-0.5 ${data.shape === id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{t(`flow.shapes.${id}.desc`)}</span>
                   </button>
                 ))}
               </div>
 
-              <Button onClick={next} disabled={!data.shape} className="w-full">Continuer</Button>
+              <Button onClick={next} disabled={!data.shape} className="w-full">{t('flow.continue')}</Button>
             </motion.div>
           )}
 
           {/* STEP 2 — Style */}
           {step === 2 && (
             <motion.div key="style" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="px-6 py-8 max-w-md mx-auto w-full">
-              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">Style des ongles</h2>
-              <p className="text-brown-light/60 text-sm mb-6 text-center">Quel look souhaites-tu ?</p>
+              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">{t('flow.styleTitle')}</h2>
+              <p className="text-brown-light/60 text-sm mb-6 text-center">{t('flow.styleSubtitle')}</p>
 
               <div className="grid grid-cols-2 gap-3 mb-4">
-                {styles.map((s) => (
+                {styleIds.map((id) => (
                   <button
-                    key={s.id}
-                    onClick={() => setData((d) => ({ ...d, style: s.id, inspirationPhoto: s.id !== 'nailart' ? null : d.inspirationPhoto }))}
-                    className={`p-4 rounded-2xl text-center transition-all ${data.style === s.id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
+                    key={id}
+                    onClick={() => setData((d) => ({ ...d, style: id, inspirationPhoto: id !== 'nailart' ? null : d.inspirationPhoto }))}
+                    className={`p-4 rounded-2xl text-center transition-all ${data.style === id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
                   >
-                    <span className={`font-heading font-semibold text-sm block ${data.style === s.id ? 'text-offwhite' : 'text-brown'}`}>{s.name}</span>
-                    <span className={`text-xs block mt-0.5 ${data.style === s.id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{s.desc}</span>
+                    <span className={`font-heading font-semibold text-sm block ${data.style === id ? 'text-offwhite' : 'text-brown'}`}>{t(`flow.styles.${id}.name`)}</span>
+                    <span className={`text-xs block mt-0.5 ${data.style === id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{t(`flow.styles.${id}.desc`)}</span>
                   </button>
                 ))}
               </div>
@@ -247,16 +221,16 @@ export default function NewVisualizationFlow({ open, onClose }) {
                         <ImagePlus className="w-4 h-4 text-brown-light/60" />
                       </div>
                       <div className="text-left">
-                        <span className="text-sm font-medium text-brown block">Photo d'inspiration</span>
-                        <span className="text-[11px] text-brown-light/50">L'IA reproduira le design</span>
+                        <span className="text-sm font-medium text-brown block">{t('flow.inspoAdd')}</span>
+                        <span className="text-[11px] text-brown-light/50">{t('flow.inspoHint')}</span>
                       </div>
                     </button>
                   ) : (
                     <div className="w-full rounded-2xl bg-white p-2 shadow-sm shadow-brown/5 flex items-center gap-3">
                       <img src={data.inspirationPhoto} className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
                       <div className="flex-1 min-w-0">
-                        <span className="text-sm font-medium text-brown block">Inspiration ajoutée</span>
-                        <span className="text-[11px] text-brown-light/50">L'IA s'en inspirera</span>
+                        <span className="text-sm font-medium text-brown block">{t('flow.inspoAdded')}</span>
+                        <span className="text-[11px] text-brown-light/50">{t('flow.inspoUsed')}</span>
                       </div>
                       <button onClick={() => { setData((d) => ({ ...d, inspirationPhoto: null })); if (inspoRef.current) inspoRef.current.value = '' }} className="w-7 h-7 rounded-full bg-brown-light/10 flex items-center justify-center flex-shrink-0">
                         <X className="w-3.5 h-3.5 text-brown-light/60" />
@@ -270,42 +244,42 @@ export default function NewVisualizationFlow({ open, onClose }) {
               {!showCustomNote ? (
                 <button onClick={() => setShowCustomNote(true)} className="flex items-center gap-2 text-sm text-brown-light/60 hover:text-brown transition-colors mb-5 mx-auto">
                   <Pencil className="w-3.5 h-3.5" />
-                  <span>Préciser une couleur ou un détail</span>
+                  <span>{t('flow.noteToggle')}</span>
                 </button>
               ) : (
                 <div className="mb-5">
                   <div className="relative">
-                    <input type="text" maxLength={35} placeholder="Ex : rouge bordeaux, paillettes…" value={data.customNote} onChange={(e) => setData((d) => ({ ...d, customNote: e.target.value }))} className="w-full px-4 py-3 bg-white rounded-2xl text-sm text-brown placeholder:text-brown-light/40 outline-none focus:ring-2 focus:ring-nude-dark/30 shadow-sm shadow-brown/5 pr-12" />
+                    <input type="text" maxLength={35} placeholder={t('flow.notePlaceholder')} value={data.customNote} onChange={(e) => setData((d) => ({ ...d, customNote: e.target.value }))} className="w-full px-4 py-3 bg-white rounded-2xl text-sm text-brown placeholder:text-brown-light/40 outline-none focus:ring-2 focus:ring-nude-dark/30 shadow-sm shadow-brown/5 pr-12" />
                     <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] text-brown-light/30">{data.customNote.length}/35</span>
                   </div>
-                  <p className="text-[11px] text-brown-light/40 mt-1 ml-1">Optionnel — aide l'IA à personnaliser</p>
+                  <p className="text-[11px] text-brown-light/40 mt-1 ml-1">{t('flow.noteHint')}</p>
                 </div>
               )}
 
-              <Button onClick={next} disabled={!data.style} className="w-full">Continuer</Button>
+              <Button onClick={next} disabled={!data.style} className="w-full">{t('flow.continue')}</Button>
             </motion.div>
           )}
 
           {/* STEP 3 — Length */}
           {step === 3 && (
             <motion.div key="length" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="px-6 py-8 max-w-md mx-auto w-full">
-              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">Longueur</h2>
-              <p className="text-brown-light/60 text-sm mb-6 text-center">Quelle longueur préfères-tu ?</p>
+              <h2 className="font-heading text-2xl font-bold text-brown mb-2 text-center">{t('flow.lengthTitle')}</h2>
+              <p className="text-brown-light/60 text-sm mb-6 text-center">{t('flow.lengthSubtitle')}</p>
 
               <div className="space-y-3 mb-6">
-                {lengths.map((l) => (
+                {lengthIds.map((id) => (
                   <button
-                    key={l.id}
-                    onClick={() => setData((d) => ({ ...d, length: l.id }))}
-                    className={`w-full p-5 rounded-2xl text-left transition-all ${data.length === l.id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
+                    key={id}
+                    onClick={() => setData((d) => ({ ...d, length: id }))}
+                    className={`w-full p-5 rounded-2xl text-left transition-all ${data.length === id ? 'bg-brown text-offwhite shadow-lg shadow-brown/20' : 'bg-white shadow-sm shadow-brown/5'}`}
                   >
-                    <span className={`font-heading font-semibold text-base block ${data.length === l.id ? 'text-offwhite' : 'text-brown'}`}>{l.name}</span>
-                    <span className={`text-xs block mt-0.5 ${data.length === l.id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{l.desc}</span>
+                    <span className={`font-heading font-semibold text-base block ${data.length === id ? 'text-offwhite' : 'text-brown'}`}>{t(`flow.lengths.${id}.name`)}</span>
+                    <span className={`text-xs block mt-0.5 ${data.length === id ? 'text-offwhite/60' : 'text-brown-light/50'}`}>{t(`flow.lengths.${id}.desc`)}</span>
                   </button>
                 ))}
               </div>
 
-              <Button onClick={handleGenerate} disabled={!data.length} className="w-full">Générer mon look</Button>
+              <Button onClick={handleGenerate} disabled={!data.length} className="w-full">{t('flow.generate')}</Button>
             </motion.div>
           )}
 
@@ -315,10 +289,10 @@ export default function NewVisualizationFlow({ open, onClose }) {
               <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: 'linear' }} className="w-16 h-16 mb-6">
                 <img src="/logo.webp" alt="MakeMyNails" className="w-full h-full rounded-2xl object-cover shadow-lg shadow-nude-dark/20" />
               </motion.div>
-              <h2 className="font-heading text-2xl font-bold text-brown mb-4">Création en cours…</h2>
+              <h2 className="font-heading text-2xl font-bold text-brown mb-4">{t('flow.processingTitle')}</h2>
               <AnimatePresence mode="wait">
                 <motion.p key={msgIndex} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} className="text-brown-light/60 text-sm">
-                  {processingMessages[msgIndex]}
+                  {t('flow.processingMessages', { returnObjects: true })[msgIndex]}
                 </motion.p>
               </AnimatePresence>
             </motion.div>

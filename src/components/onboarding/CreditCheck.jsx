@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { Sparkles, AlertCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useCredits } from '../../contexts/CreditContext'
 import Button from '../common/Button'
 
 export default function CreditCheck({ onNext, onBack, onPurchase }) {
+  const { t } = useTranslation()
   const { credits } = useCredits()
   const hasCredits = credits > 0
 
@@ -33,22 +35,22 @@ export default function CreditCheck({ onNext, onBack, onPurchase }) {
           {hasCredits ? (
             <>
               <h2 className="font-heading text-3xl font-bold text-brown mb-3">
-                Tout est prêt !
+                {t('creditCheck.readyTitle')}
               </h2>
               <p className="text-brown-light/70 mb-4">
-                Vous avez <span className="font-semibold text-brown">{credits} crédit{credits > 1 ? 's' : ''}</span> disponible{credits > 1 ? 's' : ''}.
+                <span dangerouslySetInnerHTML={{ __html: t('creditCheck.readyCredits', { count: credits, plural: credits > 1 ? 's' : '' }) }} />
               </p>
               <p className="text-brown-light/60 text-sm">
-                Cette visualisation utilisera 1 crédit.
+                {t('creditCheck.readyCost')}
               </p>
             </>
           ) : (
             <>
               <h2 className="font-heading text-3xl font-bold text-brown mb-3">
-                Plus de crédits
+                {t('creditCheck.noCreditsTitle')}
               </h2>
               <p className="text-brown-light/70 mb-4">
-                Rechargez votre compte pour continuer à créer des visualisations.
+                {t('creditCheck.noCreditsDesc')}
               </p>
             </>
           )}
@@ -58,19 +60,19 @@ export default function CreditCheck({ onNext, onBack, onPurchase }) {
           {hasCredits ? (
             <>
               <Button onClick={onNext} className="w-full">
-                Lancer la visualisation
+                {t('creditCheck.launch')}
               </Button>
               <Button variant="ghost" onClick={onBack} className="w-full">
-                Retour
+                {t('creditCheck.back')}
               </Button>
             </>
           ) : (
             <>
               <Button onClick={onPurchase} className="w-full">
-                Acheter des crédits
+                {t('creditCheck.buyCredits')}
               </Button>
               <Button variant="ghost" onClick={onBack} className="w-full">
-                Retour
+                {t('creditCheck.back')}
               </Button>
             </>
           )}

@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { User, LogOut, Package } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useCredits } from '../contexts/CreditContext'
 import { useAuth } from '../contexts/AuthContext'
 import Button from '../components/common/Button'
 
 export default function Profile() {
+  const { t, i18n } = useTranslation()
   const { credits, purchases } = useCredits()
   const { user, profile, logout, login, signup, isAuthenticated } = useAuth()
   const navigate = useNavigate()
@@ -47,7 +49,7 @@ export default function Profile() {
   return (
     <div className="pt-20 pb-24 px-4">
       <div className="max-w-lg mx-auto space-y-6">
-        <h1 className="font-heading text-3xl font-bold text-brown">Mon espace</h1>
+        <h1 className="font-heading text-3xl font-bold text-brown">{t('profilePage.title')}</h1>
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -60,10 +62,10 @@ export default function Profile() {
             </div>
             <div>
               <h2 className="font-heading text-xl font-semibold text-brown">
-                {isAuthenticated ? (profile?.name || user.email) : 'Invitée'}
+                {isAuthenticated ? (profile?.name || user.email) : t('profilePage.guest')}
               </h2>
               <p className="text-sm text-brown-light/60">
-                {isAuthenticated ? user.email : 'Connecte-toi pour sauvegarder tes créations'}
+                {isAuthenticated ? user.email : t('profilePage.guestHint')}
               </p>
             </div>
           </div>
@@ -71,10 +73,10 @@ export default function Profile() {
           {!isAuthenticated && !mode && (
             <div className="mt-4 flex gap-3">
               <Button size="sm" onClick={() => setMode('login')} className="flex-1">
-                Se connecter
+                {t('profilePage.login')}
               </Button>
               <Button variant="outline" size="sm" onClick={() => setMode('signup')} className="flex-1">
-                S'inscrire
+                {t('profilePage.signup')}
               </Button>
             </div>
           )}
@@ -84,7 +86,7 @@ export default function Profile() {
               {mode === 'signup' && (
                 <input
                   type="text"
-                  placeholder="Votre prénom"
+                  placeholder={t('profilePage.namePlaceholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-nude/50 bg-offwhite text-brown text-sm focus:outline-none focus:ring-2 focus:ring-beige/50"
@@ -100,7 +102,7 @@ export default function Profile() {
               />
               <input
                 type="password"
-                placeholder="Mot de passe"
+                placeholder={t('profilePage.passwordPlaceholder')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -110,10 +112,10 @@ export default function Profile() {
               {error && <p className="text-red-400 text-xs">{error}</p>}
               <div className="flex gap-3">
                 <Button variant="ghost" size="sm" onClick={() => setMode(null)} className="flex-1" type="button">
-                  Annuler
+                  {t('profilePage.cancel')}
                 </Button>
                 <Button size="sm" className="flex-1" type="submit" disabled={loading}>
-                  {loading ? '...' : mode === 'login' ? 'Connexion' : 'Créer mon compte'}
+                  {loading ? '...' : mode === 'login' ? t('profilePage.loginCta') : t('profilePage.signupCta')}
                 </Button>
               </div>
             </form>
@@ -132,12 +134,12 @@ export default function Profile() {
                 <img src="/logo.webp" alt="MakeMyNails" className="w-full h-full object-cover" />
               </div>
               <div>
-                <p className="font-medium text-brown">Tes looks</p>
-                <p className="text-sm text-brown-light/60">{credits} {credits !== 1 ? 'looks à créer' : 'look à créer'}</p>
+                <p className="font-medium text-brown">{t('profilePage.yourLooks')}</p>
+                <p className="text-sm text-brown-light/60">{credits} {credits !== 1 ? t('profilePage.looksToCreatePlural') : t('profilePage.looksToCreate')}</p>
               </div>
             </div>
             <Link to="/app/purchase" className="text-sm text-beige-dark font-medium hover:text-brown transition-colors">
-              Obtenir plus
+              {t('profilePage.getMore')}
             </Link>
           </div>
         </motion.div>
@@ -150,18 +152,18 @@ export default function Profile() {
         >
           <h3 className="font-heading text-lg font-semibold text-brown mb-4 flex items-center gap-2">
             <Package className="w-5 h-5 text-brown-light/60" />
-            Mes achats
+            {t('profilePage.purchases')}
           </h3>
           {purchases.length === 0 ? (
-            <p className="text-sm text-brown-light/50 text-center py-4">Aucun achat pour l'instant</p>
+            <p className="text-sm text-brown-light/50 text-center py-4">{t('profilePage.noPurchases')}</p>
           ) : (
             <div className="space-y-3">
               {purchases.map((p) => (
                 <div key={p.id} className="flex items-center justify-between py-2 border-b border-nude/20 last:border-0">
                   <div>
-                    <p className="text-sm font-medium text-brown">Pack {p.packs?.name || p.pack_id}</p>
+                    <p className="text-sm font-medium text-brown">{t('profilePage.pack')} {p.packs?.name || p.pack_id}</p>
                     <p className="text-xs text-brown-light/50">
-                      {new Date(p.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                      {new Date(p.created_at).toLocaleDateString(i18n.language === 'fr' ? 'fr-FR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
                     </p>
                   </div>
                   <div className="text-right">
@@ -185,7 +187,7 @@ export default function Profile() {
               className="w-full flex items-center gap-3 bg-white rounded-2xl p-4 shadow-sm shadow-brown/5 hover:shadow-md transition-shadow"
             >
               <LogOut className="w-5 h-5 text-red-400" />
-              <span className="text-sm font-medium text-red-400">Me déconnecter</span>
+              <span className="text-sm font-medium text-red-400">{t('profilePage.logout')}</span>
             </button>
           </motion.div>
         )}
