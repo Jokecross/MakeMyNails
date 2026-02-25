@@ -1,0 +1,58 @@
+import { motion } from 'framer-motion'
+import { Plus, Crown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { useCredits } from '../../contexts/CreditContext'
+
+export default function CreditCounter() {
+  const { credits, isSubscribed } = useCredits()
+  const { t } = useTranslation()
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-3xl p-6 text-offwhite bg-gradient-to-r from-brown to-brown-light"
+    >
+      <div className="flex items-center justify-between">
+        <div>
+          {isSubscribed && (
+            <div className="flex items-center gap-1.5 mb-2">
+              <Crown className="w-3.5 h-3.5 text-beige" />
+              <span className="text-xs font-semibold text-beige">Premium</span>
+            </div>
+          )}
+          <p className="text-offwhite/60 text-sm mb-1">{t('dashboard.creditsLabel')}</p>
+          <div className="flex items-baseline gap-2">
+            <span className="font-heading text-4xl font-bold">{credits}</span>
+            <span className="text-offwhite/50 text-sm">
+              {credits !== 1 ? t('dashboard.creditsUnitPlural') : t('dashboard.creditsUnit')}
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-white/10">
+            {isSubscribed ? (
+              <Crown className="w-7 h-7 text-beige" />
+            ) : (
+              <img src="/logo.png" alt="MakeMyNails" className="w-10 h-10 rounded-xl object-cover opacity-80" />
+            )}
+          </div>
+        </div>
+      </div>
+      <Link
+        to="/app/purchase"
+        className="mt-4 flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 transition-colors py-2.5 rounded-xl text-sm font-medium"
+      >
+        {isSubscribed ? (
+          t('dashboard.manageSubscription')
+        ) : (
+          <>
+            <Plus className="w-4 h-4" />
+            {t('dashboard.getMoreLooks')}
+          </>
+        )}
+      </Link>
+    </motion.div>
+  )
+}

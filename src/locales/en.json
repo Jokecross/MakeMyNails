@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "emma": "Emma ✨",
+    "pricing": "Pricing",
+    "login": "Log in"
+  },
+  "hero": {
+    "badge": "💅 Your perfect nails, finally.",
+    "title": "Fall in love",
+    "titleItalic": "with your nails",
+    "titleSuffix": "before you even have them",
+    "subtitle": "Take a photo of your hands, choose your style and see the result in seconds. On your real hands.",
+    "cta": "Try on my hands",
+    "howItWorks": "See examples",
+    "before": "Before",
+    "after": "After",
+    "examples": [
+      { "badge": "✨ French manicure" },
+      { "badge": "💅 Solid color" },
+      { "badge": "💖 Nail art" },
+      { "badge": "🌸 Gradient" },
+      { "badge": "💎 Minimalist" },
+      { "badge": "🪩 Chrome" },
+      { "badge": "✨ Classic French" },
+      { "badge": "💅 Elegant nude" },
+      { "badge": "💖 Creative art" },
+      { "badge": "🌺 Vibrant colors" },
+      { "badge": "💎 Stiletto glam" },
+      { "badge": "🤍 Clean white" },
+      { "badge": "🖤 Dark luxe" },
+      { "badge": "🌟 Mirror finish" }
+    ]
+  },
+  "steps": {
+    "title": "From your photo to the result, in 30 seconds",
+    "subtitle": "Simple, fast, and on your real hands",
+    "items": [
+      {
+        "title": "Take a photo of your hand",
+        "description": "From your gallery or directly with the app. No photographer skills needed."
+      },
+      {
+        "title": "Choose your style",
+        "description": "Shape, length, color, finish, everything is customizable in a few taps."
+      },
+      {
+        "title": "See your result",
+        "description": "The AI generates your real manicure, on your real hands. In seconds."
+      }
+    ]
+  },
+  "emma": {
+    "badge": "✨ Premium Exclusive",
+    "title": "What if someone chose",
+    "titleItalic": "your perfect nails for you?",
+    "subtitle": "Emma is your personal style assistant. Tell her the occasion, show her your outfit and she suggests the nails that make the wow effect.",
+    "features": [
+      {
+        "title": "For every moment in your life",
+        "description": "Wedding, party, date, important meeting… Emma knows exactly what you need for every occasion."
+      },
+      {
+        "title": "Matched to what you're wearing",
+        "description": "Send a photo of your outfit. Emma picks nails that perfectly complement it for a cohesive look."
+      },
+      {
+        "title": "Just for you, not for everyone",
+        "description": "No generic suggestions. Emma knows you and only proposes what will make you shine."
+      }
+    ],
+    "chatBotHi": "Hey! 👋 What's the occasion?",
+    "chatUserPicks": "🥂 Party",
+    "chatBotResponse": "Perfect ✨ Here are my 3 recommendations to shine tonight:",
+    "cta": "Discover Emma →",
+    "ctaNote": "Included in Premium subscription · $14.99/month",
+    "occasions": {
+      "wedding": "Wedding",
+      "work": "Work / Office",
+      "party": "Party / Night out",
+      "vacation": "Vacation",
+      "date": "Date night",
+      "everyday": "Everyday",
+      "other": "Other occasion"
+    }
+  },
+  "pricing": {
+    "title": "How many times do you change your mind before your next appointment?",
+    "subtitle": "Test every style you want, before making up your mind.",
+    "popular": "Fan favorite ❤️",
+    "features": {
+      "aiVisualizations": "{{count}} AI visualizations",
+      "unlimitedShare": "Unlimited sharing",
+      "history": "Saved history",
+      "exclusiveStyles": "Exclusive styles"
+    },
+    "choose": "Choose this pack"
+  },
+  "testimonials": {
+    "title": "They never book an appointment without trying it first",
+    "subtitle": "Join thousands of women who know exactly what they want before walking into the salon",
+    "items": [
+      {
+        "name": "Sophie M.",
+        "text": "I could finally show my nail tech exactly what I wanted. No more bad surprises!"
+      },
+      {
+        "name": "Lea D.",
+        "text": "Amazing! I tried so many styles before my wedding to find the perfect one. 100% recommend."
+      },
+      {
+        "name": "Camille R.",
+        "text": "Super practical and the result looks so realistic. I use MakeMyNails before every appointment now."
+      },
+      {
+        "name": "Julie B.",
+        "text": "Best investment for someone who changes styles often. It saved me from several regrets!"
+      }
+    ]
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to\nMakeMyNails",
+      "subtitle": "See your perfect nails before your appointment — free and in 30 seconds",
+      "cta": "Try now"
+    },
+    "photo": {
+      "title": "Take a photo of your hand",
+      "subtitle": "We'll create your personalized manicure on it",
+      "camera": "Camera",
+      "gallery": "Gallery",
+      "recommendationBanner": "No idea? <bold>Let Emma choose for you</bold>",
+      "teaserTitle": "Personalized recommendations",
+      "teaserBadge": "Available with an account",
+      "teaserDescription": "Create your free account to unlock Emma — your style assistant who recommends the perfect nails for your occasion and preferences.",
+      "teaserStep1": "Send a photo of your hand",
+      "teaserStep2": "Tell us the occasion",
+      "teaserStep3": "Get tailor-made styles",
+      "teaserCta": "Create my free account",
+      "teaserSkip": "Continue without recommendations"
+    },
+    "shape": {
+      "title": "What shape do you want?",
+      "subtitle": "Choose the shape that suits you",
+      "items": {
+        "almond": { "name": "Almond", "desc": "Elegant and feminine" },
+        "square": { "name": "Square", "desc": "Clean and modern" },
+        "stiletto": { "name": "Stiletto", "desc": "Bold and glamorous" },
+        "coffin": { "name": "Coffin", "desc": "Trendy and chic" },
+        "oval": { "name": "Oval", "desc": "Classic and soft" },
+        "ballerina": { "name": "Ballerina", "desc": "Refined and elongated" }
+      }
+    },
+    "style": {
+      "title": "What style do you want to try?",
+      "subtitle": "Choose the look of your dreams",
+      "items": {
+        "french": { "name": "French", "desc": "Timeless" },
+        "color": { "name": "Solid color", "desc": "Simple and chic" },
+        "nailart": { "name": "Nail Art", "desc": "Creative and unique" },
+        "gradient": { "name": "Gradient", "desc": "Soft and trendy" },
+        "minimalist": { "name": "Minimalist", "desc": "Clean and modern" },
+        "chrome": { "name": "Chrome", "desc": "Shiny and futuristic" }
+      },
+      "addInspo": "Add an inspiration photo",
+      "inspoHint": "The AI will reproduce the design on your nails",
+      "inspoLabel": "Inspiration photo",
+      "inspoUsed": "The AI will use it for your Nail Art",
+      "addNote": "Specify a color or detail",
+      "notePlaceholder": "E.g. dark red, gold glitter…",
+      "noteHint": "Optional — helps the AI personalize your result"
+    },
+    "length": {
+      "title": "What length do you prefer?",
+      "subtitle": "Choose what suits you best",
+      "items": {
+        "short": { "name": "Short", "desc": "Practical and subtle" },
+        "medium": { "name": "Medium", "desc": "Versatile and elegant" },
+        "long": { "name": "Long", "desc": "Glamorous and bold" }
+      }
+    },
+    "processing": {
+      "title": "Creating your manicure…",
+      "messages": [
+        "Analyzing your hands…",
+        "Applying chosen style…",
+        "Creating your look…",
+        "Final touches…",
+        "Almost ready… ✨"
+      ]
+    },
+    "back": "Back",
+    "continue": "Continue"
+  },
+  "result": {
+    "notFound": "Result not found",
+    "backHome": "Back to home",
+    "ready": "Wow. Your nails are ready.",
+    "preview": "You're going to love what we created for you",
+    "before": "Before",
+    "after": "After",
+    "locked": "Result hidden",
+    "yourLook": "Your look",
+    "lookDetails": "Look details",
+    "shape": "Shape",
+    "style": "Style",
+    "length": "Length",
+    "seeResult": "Reveal your result ✨",
+    "free": "Free — takes 10 seconds",
+    "welcome_back": "Welcome back!",
+    "createAccount": "Create your account",
+    "loginSubtitle": "Log in to see your result",
+    "signupSubtitle": "Free — discover your result instantly",
+    "firstName": "Your first name",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log in",
+    "signup": "Reveal my result ✨",
+    "alreadyAccount": "Already have an account? Log in",
+    "noAccount": "No account yet? Sign up",
+    "cancel": "Cancel",
+    "save": "Save",
+    "share": "Share",
+    "tryAnother": "Try another style",
+    "bookSalon": "Book a salon",
+    "comingSoon": "Soon",
+    "back": "Back",
+    "yourResult": "Your result",
+    "error": "An error occurred"
+  },
+  "dashboard": {
+    "creditsLabel": "Your available looks",
+    "creditsUnit": "look to create",
+    "creditsUnitPlural": "looks to create",
+    "getMoreLooks": "Get more looks →",
+    "manageSubscription": "Manage my Premium →",
+    "noCredits": "You have no more looks available",
+    "buyCredits": "Get more looks",
+    "newLookTitle": "Ready for a new look?",
+    "newLookSub": "Take a photo of your hand — your result is waiting",
+    "newLook": "Create my look →",
+    "historyTitle": "Your creations",
+    "historySeeAll": "See all",
+    "historyEmpty": "Your first masterpiece is waiting",
+    "historyEmptyHint": "Go for it, it's free ✨",
+    "history": "Your creations",
+    "recommendations": "Tell me the occasion and your outfit — I'll take care of the rest ✨",
+    "recommendationsSub": "Let Emma choose for you ✨",
+    "recommendationsLocked": "Emma is ready to find your perfect look 💅 Unlock her with Premium",
+    "credits": "credit",
+    "credits_plural": "credits",
+    "premium": "Premium",
+    "unlimited": "Unlimited",
+    "emmaChat": {
+      "welcome": "Hey! 👋 I'm Emma, your style assistant. Send me a photo of your hand and I'll take care of the rest!",
+      "photoCamera": "Photo",
+      "photoGallery": "Gallery",
+      "outfitQuestion": "Love this photo! 😍 Want to also send a photo of your outfit? I'll pick nails that perfectly match it ✨",
+      "outfitCamera": "Outfit photo",
+      "outfitSkip": "Skip",
+      "outfitSkipped": "No outfit photo",
+      "occasionQuestion_outfit": "Love your outfit! 🔥 What's the occasion?",
+      "occasionQuestion_no_outfit": "No problem! What's the occasion?",
+      "resultsIntro": "Perfect! Here are my recommendations for {{occasion}}{{outfitSuffix}} ✨",
+      "resultsSuffix_outfit": ", matched to your outfit",
+      "restart": "Start over"
+    }
+  },
+  "purchase": {
+    "title": "Credits & Subscription",
+    "subtitle": "Test every style you want — before committing to your nail tech",
+    "tabPacks": "Packs",
+    "tabSubscription": "Subscription",
+    "currentCredits": "Available credits",
+    "subscribe": "Subscribe",
+    "alreadySubscribed": "Active subscription",
+    "buy": "Buy"
+  },
+  "footer": {
+    "tagline": "Never leave the salon with regrets again.",
+    "rights": "© 2025 MakeMyNails. All rights reserved."
+  },
+  "common": {
+    "back": "Back",
+    "continue": "Continue",
+    "close": "Close",
+    "loading": "Loading…",
+    "error": "An error occurred"
+  }
+}

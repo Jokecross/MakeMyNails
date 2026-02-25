@@ -1,0 +1,85 @@
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { User, Home, History, Menu, X } from 'lucide-react'
+import { useState } from 'react'
+import { useCredits } from '../../contexts/CreditContext'
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
+  const { credits } = useCredits()
+  const location = useLocation()
+
+  const isApp = location.pathname.startsWith('/app')
+
+  if (!isApp) return null
+
+  const links = [
+    { to: '/app', icon: Home, label: 'Accueil' },
+    { to: '/app/history', icon: History, label: 'Historique' },
+    { to: '/app/profile', icon: User, label: 'Profil' },
+  ]
+
+  return (
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
+        <div className="max-w-lg mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/app" className="flex items-center gap-2">
+            <img src="/logo.png" alt="MakeMyNails" className="w-8 h-8 rounded-xl object-cover" />
+            <span className="font-heading text-xl font-semibold text-brown">MakeMyNails</span>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <Link to="/app/purchase" className="flex items-center gap-1.5 bg-nude/60 px-3 py-1.5 rounded-full">
+              <img src="/logo.png" alt="" className="w-4 h-4 rounded-md object-cover" />
+              <span className="text-sm font-semibold text-brown">{credits}</span>
+            </Link>
+
+            <button onClick={() => setOpen(!open)} className="p-2 rounded-xl hover:bg-nude/30 transition-colors">
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="border-t border-nude/30 px-4 pb-4"
+          >
+            {links.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
+                  location.pathname === link.to ? 'bg-nude/40 text-brown' : 'text-brown-light hover:bg-nude/20'
+                }`}
+              >
+                <link.icon className="w-5 h-5" />
+                <span className="font-medium">{link.label}</span>
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </nav>
+
+      {/* Bottom nav for mobile */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 glass-strong border-t border-nude/20 md:hidden">
+        <div className="max-w-lg mx-auto flex justify-around py-2">
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`flex flex-col items-center gap-1 px-4 py-1.5 rounded-xl transition-colors ${
+                location.pathname === link.to ? 'text-brown' : 'text-brown-light/60'
+              }`}
+            >
+              <link.icon className="w-5 h-5" />
+              <span className="text-[10px] font-medium">{link.label}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </>
+  )
+}

@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "howItWorks": "Comment ça marche",
+    "emma": "Emma ✨",
+    "pricing": "Tarifs",
+    "login": "Connexion"
+  },
+  "hero": {
+    "badge": "💅 Tes ongles parfaits, enfin.",
+    "title": "Tombe amoureuse",
+    "titleItalic": "de tes ongles",
+    "titleSuffix": "avant même de les avoir",
+    "subtitle": "Prends une photo de tes mains, choisis ton style et vois le résultat en quelques secondes. Sur tes vraies mains.",
+    "cta": "Essayer sur mes mains",
+    "howItWorks": "Voir des exemples",
+    "before": "Avant",
+    "after": "Après",
+    "examples": [
+      { "badge": "✨ French manucure" },
+      { "badge": "💅 Couleur unie" },
+      { "badge": "💖 Nail art" },
+      { "badge": "🌸 Dégradé" },
+      { "badge": "💎 Minimaliste" },
+      { "badge": "🪩 Chrome" },
+      { "badge": "✨ French classique" },
+      { "badge": "💅 Nude élégant" },
+      { "badge": "💖 Art créatif" },
+      { "badge": "🌺 Couleurs vives" },
+      { "badge": "💎 Stiletto glam" },
+      { "badge": "🤍 Blanc épuré" },
+      { "badge": "🖤 Dark luxe" },
+      { "badge": "🌟 Finition miroir" }
+    ]
+  },
+  "steps": {
+    "title": "De ta photo au résultat, en 30 secondes",
+    "subtitle": "Simple, rapide, et sur tes vraies mains",
+    "items": [
+      {
+        "title": "Prends une photo de ta main",
+        "description": "Depuis ta galerie ou direct avec l'appli. Pas besoin d'être photographe."
+      },
+      {
+        "title": "Choisis ton style",
+        "description": "Forme, longueur, couleur, finition, tout se personnalise en quelques taps."
+      },
+      {
+        "title": "Vois ton résultat",
+        "description": "L'IA génère ta vraie manucure, sur tes vraies mains. En quelques secondes."
+      }
+    ]
+  },
+  "emma": {
+    "badge": "✨ Exclusif Premium",
+    "title": "Et si quelqu'un choisissait",
+    "titleItalic": "tes ongles parfaits pour toi ?",
+    "subtitle": "Emma est ton assistante style personnelle. Tu lui dis l'occasion, tu lui montres ta tenue et elle te propose les ongles qui font l'effet wow.",
+    "features": [
+      {
+        "title": "Pour chaque moment de ta vie",
+        "description": "Mariage, soirée, date, meeting important… Emma sait exactement ce qu'il faut pour chaque occasion."
+      },
+      {
+        "title": "Accordée à ce que tu portes",
+        "description": "Envoie une photo de ta tenue. Emma choisit des ongles qui s'y accordent parfaitement pour un look cohérent."
+      },
+      {
+        "title": "Juste pour toi, pas pour tout le monde",
+        "description": "Fini les suggestions génériques. Emma te connaît et te propose uniquement ce qui te mettra en valeur."
+      }
+    ],
+    "chatBotHi": "Hey ! 👋 C'est pour quelle occasion ?",
+    "chatUserPicks": "🥂 Soirée",
+    "chatBotResponse": "Parfait ✨ Voici mes 3 recommandations pour briller ce soir :",
+    "cta": "Découvrir Emma →",
+    "ctaNote": "Inclus dans l'abonnement Premium · 14,99€/mois",
+    "occasions": {
+      "wedding": "Mariage",
+      "work": "Travail / Bureau",
+      "party": "Soirée / Fête",
+      "vacation": "Vacances",
+      "date": "Rendez-vous galant",
+      "everyday": "Quotidien",
+      "other": "Autre occasion"
+    }
+  },
+  "pricing": {
+    "title": "Combien de fois tu changes d'avis avant ton prochain rendez-vous ?",
+    "subtitle": "Teste tous les styles que tu veux, avant de te décider.",
+    "popular": "La favorite ❤️",
+    "features": {
+      "aiVisualizations": "{{count}} visualisations IA",
+      "unlimitedShare": "Partage illimité",
+      "history": "Sauvegarde historique",
+      "exclusiveStyles": "Styles exclusifs"
+    },
+    "choose": "Choisir ce pack"
+  },
+  "testimonials": {
+    "title": "Elles ne prennent plus de RDV sans l'avoir essayé",
+    "subtitle": "Rejoins des milliers de femmes qui savent exactement ce qu'elles veulent avant d'entrer chez leur prothésiste",
+    "items": [
+      {
+        "name": "Sophie M.",
+        "text": "J'ai enfin pu montrer exactement ce que je voulais à ma prothésiste. Plus jamais de mauvaises surprises !"
+      },
+      {
+        "name": "Léa D.",
+        "text": "Trop bien ! J'ai pu tester plein de styles avant mon mariage pour trouver le parfait. Je recommande à 100%."
+      },
+      {
+        "name": "Camille R.",
+        "text": "Super pratique et le rendu est hyper réaliste. J'utilise MakeMyNails avant chaque rendez-vous maintenant."
+      },
+      {
+        "name": "Julie B.",
+        "text": "Le meilleur investissement pour quelqu'un qui change souvent de style. Ça m'a évité plusieurs regrets !"
+      }
+    ]
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Bienvenue sur\nMakeMyNails",
+      "subtitle": "Vois tes ongles parfaits avant même ton rendez-vous — gratuit et en 30 secondes",
+      "cta": "Essayer maintenant"
+    },
+    "photo": {
+      "title": "Prends une photo de ta main",
+      "subtitle": "On va créer ta manucure personnalisée dessus",
+      "camera": "Appareil photo",
+      "gallery": "Galerie",
+      "recommendationBanner": "Pas d'idée ? <bold>Laisse Emma choisir pour toi</bold>",
+      "teaserTitle": "Recommandations personnalisées",
+      "teaserBadge": "Disponible avec un compte",
+      "teaserDescription": "Crée ton compte gratuit pour débloquer Emma — ton assistante style qui te recommande les ongles parfaits selon ton occasion et tes envies.",
+      "teaserStep1": "Envoie une photo de ta main",
+      "teaserStep2": "Dis-nous l'occasion",
+      "teaserStep3": "Reçois des styles sur-mesure",
+      "teaserCta": "Créer mon compte gratuitement",
+      "teaserSkip": "Continuer sans recommandations"
+    },
+    "shape": {
+      "title": "Quelle forme tu veux ?",
+      "subtitle": "Choisis la forme qui te correspond",
+      "items": {
+        "almond": { "name": "Amande", "desc": "Élégant et féminin" },
+        "square": { "name": "Carré", "desc": "Net et moderne" },
+        "stiletto": { "name": "Stiletto", "desc": "Audacieux et glamour" },
+        "coffin": { "name": "Coffin", "desc": "Tendance et chic" },
+        "oval": { "name": "Ovale", "desc": "Classique et doux" },
+        "ballerina": { "name": "Ballerine", "desc": "Raffiné et allongé" }
+      }
+    },
+    "style": {
+      "title": "Quel style tu veux essayer ?",
+      "subtitle": "Choisis le look de tes rêves",
+      "items": {
+        "french": { "name": "French", "desc": "Intemporel" },
+        "color": { "name": "Couleur unie", "desc": "Simple et chic" },
+        "nailart": { "name": "Nail Art", "desc": "Créatif et unique" },
+        "gradient": { "name": "Dégradé", "desc": "Doux et tendance" },
+        "minimalist": { "name": "Minimaliste", "desc": "Épuré et moderne" },
+        "chrome": { "name": "Chrome", "desc": "Brillant et futuriste" }
+      },
+      "addInspo": "Ajouter une photo d'inspiration",
+      "inspoHint": "L'IA reproduira le design sur tes ongles",
+      "inspoLabel": "Photo d'inspiration",
+      "inspoUsed": "L'IA s'en inspirera pour ton Nail Art",
+      "addNote": "Préciser une couleur ou un détail",
+      "notePlaceholder": "Ex : rouge bordeaux, paillettes dorées…",
+      "noteHint": "Optionnel — aide l'IA à personnaliser ton résultat"
+    },
+    "length": {
+      "title": "Quelle longueur tu préfères ?",
+      "subtitle": "Choisis ce qui te correspond le mieux",
+      "items": {
+        "short": { "name": "Court", "desc": "Pratique et discret" },
+        "medium": { "name": "Moyen", "desc": "Polyvalent et élégant" },
+        "long": { "name": "Long", "desc": "Glamour et audacieux" }
+      }
+    },
+    "processing": {
+      "title": "On crée ta manucure…",
+      "messages": [
+        "Analyse de tes mains en cours…",
+        "Application du style choisi…",
+        "Création de ton look…",
+        "Touches finales…",
+        "Presque prêt… ✨"
+      ]
+    },
+    "back": "Retour",
+    "continue": "Continuer"
+  },
+  "result": {
+    "notFound": "Résultat introuvable",
+    "backHome": "Retour à l'accueil",
+    "ready": "Wow. Tes ongles sont prêts.",
+    "preview": "Tu vas adorer ce qu'on a créé pour toi",
+    "before": "Avant",
+    "after": "Après",
+    "locked": "Résultat masqué",
+    "yourLook": "Ton look",
+    "lookDetails": "Détails du look",
+    "shape": "Forme",
+    "style": "Style",
+    "length": "Longueur",
+    "seeResult": "Révèle ton résultat ✨",
+    "free": "Gratuit — prend 10 secondes",
+    "welcome_back": "Bon retour !",
+    "createAccount": "Crée ton compte",
+    "loginSubtitle": "Connecte-toi pour voir ton résultat",
+    "signupSubtitle": "Gratuit — découvre ton résultat instantanément",
+    "firstName": "Ton prénom",
+    "email": "Email",
+    "password": "Mot de passe",
+    "login": "Me connecter",
+    "signup": "Révéler mon résultat ✨",
+    "alreadyAccount": "Déjà un compte ? Connecte-toi",
+    "noAccount": "Pas encore de compte ? Inscris-toi",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "share": "Partager",
+    "tryAnother": "Essayer un autre style",
+    "bookSalon": "Réserver un salon",
+    "comingSoon": "Bientôt",
+    "back": "Retour",
+    "yourResult": "Votre résultat",
+    "error": "Une erreur est survenue"
+  },
+  "dashboard": {
+    "creditsLabel": "Tes looks disponibles",
+    "creditsUnit": "look à créer",
+    "creditsUnitPlural": "looks à créer",
+    "getMoreLooks": "Obtenir plus de looks →",
+    "manageSubscription": "Gérer mon Premium →",
+    "noCredits": "Tu n'as plus de looks disponibles",
+    "buyCredits": "Obtenir plus de looks",
+    "newLookTitle": "Prête pour un nouveau look ?",
+    "newLookSub": "Prends une photo de ta main — le résultat t'attend",
+    "newLook": "Créer mon look →",
+    "historyTitle": "Tes créations",
+    "historySeeAll": "Voir tout",
+    "historyEmpty": "Ton premier chef-d'œuvre t'attend",
+    "historyEmptyHint": "Lance-toi, c'est gratuit ✨",
+    "history": "Tes créations",
+    "recommendations": "Dis-moi l'occasion et ta tenue — je m'occupe du reste ✨",
+    "recommendationsSub": "Laisse Emma choisir pour toi ✨",
+    "recommendationsLocked": "Emma est prête à te trouver le look parfait 💅 Débloque-la avec Premium",
+    "credits": "crédit",
+    "credits_plural": "crédits",
+    "premium": "Premium",
+    "unlimited": "Illimité",
+    "emmaChat": {
+      "welcome": "Hey ! 👋 Je suis Emma, ton assistante style. Envoie-moi une photo de ta main et je m'occupe du reste !",
+      "photoCamera": "Photo",
+      "photoGallery": "Galerie",
+      "outfitQuestion": "Trop belle cette photo ! 😍 Tu veux aussi m'envoyer ta tenue ? Je choisirai des ongles qui s'y accordent parfaitement ✨",
+      "outfitCamera": "Photo tenue",
+      "outfitSkip": "Passer",
+      "outfitSkipped": "Sans photo de tenue",
+      "occasionQuestion_outfit": "J'adore ta tenue ! 🔥 C'est pour quelle occasion ?",
+      "occasionQuestion_no_outfit": "Pas de problème ! C'est pour quelle occasion ?",
+      "resultsIntro": "Parfait ! Voici mes recommandations pour {{occasion}}{{outfitSuffix}} ✨",
+      "resultsSuffix_outfit": ", accordées à ta tenue",
+      "restart": "Recommencer"
+    }
+  },
+  "purchase": {
+    "title": "Crédits & Abonnement",
+    "subtitle": "Teste tous les styles que tu veux — avant de t'engager chez ta prothésiste",
+    "tabPacks": "Packs",
+    "tabSubscription": "Abonnement",
+    "currentCredits": "Crédits disponibles",
+    "subscribe": "S'abonner",
+    "alreadySubscribed": "Abonnement actif",
+    "buy": "Acheter"
+  },
+  "footer": {
+    "tagline": "Plus jamais de mauvaises surprises chez ta prothésiste.",
+    "rights": "© 2025 MakeMyNails. Tous droits réservés."
+  },
+  "common": {
+    "back": "Retour",
+    "continue": "Continuer",
+    "close": "Fermer",
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue"
+  }
+}
