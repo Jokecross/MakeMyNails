@@ -31,7 +31,7 @@ export function CreditProvider({ children }) {
     if (!user) return
     const { data } = await supabase
       .from('purchases')
-      .select('*, packs(name)')
+      .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
     if (data) setPurchases(data)
