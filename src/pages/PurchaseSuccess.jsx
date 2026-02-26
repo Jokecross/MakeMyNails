@@ -4,18 +4,21 @@ import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useCredits } from '../contexts/CreditContext'
+import { useAuth } from '../contexts/AuthContext'
 import Button from '../components/common/Button'
 
 export default function PurchaseSuccess() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const { fetchHistory, fetchPurchases, fetchSubscription } = useCredits()
+  const { refreshProfile } = useAuth()
   const [countdown, setCountdown] = useState(5)
 
   useEffect(() => {
     // Refresh everything after successful payment
     // Small delay to let webhook process first
     setTimeout(() => {
+      refreshProfile()
       fetchHistory()
       fetchPurchases()
       fetchSubscription()
