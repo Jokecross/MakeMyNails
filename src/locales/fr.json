@@ -153,7 +153,7 @@
     },
     "style": {
       "title": "Quel style tu veux essayer ?",
-      "subtitle": "Choisis le look de tes rêves",
+      "subtitle": "Choisis le style de tes rêves",
       "items": {
         "french": { "name": "French", "desc": "Intemporel" },
         "color": { "name": "Couleur unie", "desc": "Simple et chic" },
@@ -184,7 +184,7 @@
       "messages": [
         "Analyse de tes mains en cours…",
         "Application du style choisi…",
-        "Création de ton look…",
+        "Création de ta manucure…",
         "Touches finales…",
         "Presque prêt… ✨"
       ]
@@ -200,8 +200,8 @@
     "before": "Avant",
     "after": "Après",
     "locked": "Résultat masqué",
-    "yourLook": "Ton look",
-    "lookDetails": "Détails du look",
+    "yourLook": "Ta manucure",
+    "lookDetails": "Détails de la manucure",
     "shape": "Forme",
     "style": "Style",
     "length": "Longueur",
@@ -229,16 +229,16 @@
     "error": "Une erreur est survenue"
   },
   "dashboard": {
-    "creditsLabel": "Tes looks disponibles",
-    "creditsUnit": "look à créer",
-    "creditsUnitPlural": "looks à créer",
-    "getMoreLooks": "Obtenir plus de looks →",
+    "creditsLabel": "Tes manucures disponibles",
+    "creditsUnit": "manucure à créer",
+    "creditsUnitPlural": "manucures à créer",
+    "getMoreLooks": "Obtenir plus de manucures →",
     "manageSubscription": "Gérer mon Premium →",
-    "noCredits": "Tu n'as plus de looks disponibles",
-    "buyCredits": "Obtenir plus de looks",
-    "newLookTitle": "Prête pour un nouveau look ?",
+    "noCredits": "Tu n'as plus de manucures disponibles",
+    "buyCredits": "Obtenir plus de manucures",
+    "newLookTitle": "Prête pour ta prochaine manucure ?",
     "newLookSub": "Prends une photo de ta main — le résultat t'attend",
-    "newLook": "Créer mon look →",
+    "newLook": "Créer ma manucure →",
     "historyTitle": "Tes créations",
     "historySeeAll": "Voir tout",
     "historyEmpty": "Ton premier chef-d'œuvre t'attend",
@@ -246,7 +246,7 @@
     "history": "Tes créations",
     "recommendations": "Dis-moi l'occasion et ta tenue — je m'occupe du reste ✨",
     "recommendationsSub": "Laisse Emma choisir pour toi ✨",
-    "recommendationsLocked": "Emma est prête à te trouver le look parfait 💅 Débloque-la avec Premium",
+    "recommendationsLocked": "Emma est prête à te trouver la manucure parfaite 💅 Débloque-la avec Premium",
     "credits": "crédit",
     "credits_plural": "crédits",
     "premium": "Premium",
@@ -289,7 +289,7 @@
     "close": "Fermer",
     "back": "Retour",
     "continue": "Continuer",
-    "generate": "Générer mon look",
+    "generate": "Générer ma manucure",
     "stepPhoto": "Ta photo",
     "stepShape": "Forme",
     "stepStyle": "Style",
@@ -310,7 +310,7 @@
       "ballerina": { "name": "Ballerine", "desc": "Long et raffiné" }
     },
     "styleTitle": "Style des ongles",
-    "styleSubtitle": "Quel look souhaites-tu ?",
+    "styleSubtitle": "Quel style souhaites-tu ?",
     "styles": {
       "french": { "name": "French", "desc": "Intemporel" },
       "color": { "name": "Couleur unie", "desc": "Simple et chic" },
@@ -337,7 +337,7 @@
     "processingMessages": [
       "Analyse de ta photo…",
       "Application du style choisi…",
-      "Création de ton look…",
+      "Création de ta manucure…",
       "Ajustements finaux…",
       "Presque terminé…"
     ]
@@ -353,9 +353,9 @@
     "cancel": "Annuler",
     "loginCta": "Connexion",
     "signupCta": "Créer mon compte",
-    "yourLooks": "Tes looks",
-    "looksToCreate": "look à créer",
-    "looksToCreatePlural": "looks à créer",
+    "yourLooks": "Tes manucures",
+    "looksToCreate": "manucure à créer",
+    "looksToCreatePlural": "manucures à créer",
     "getMore": "Obtenir plus",
     "purchases": "Mes achats",
     "noPurchases": "Aucun achat pour l'instant",
