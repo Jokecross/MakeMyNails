@@ -50,6 +50,6 @@ export async function createCheckoutSession(packId, accessToken) {
   })
 
   const data = await res.json()
-  if (!res.ok) throw new Error(data.error || 'Checkout session creation failed')
+  if (!res.ok) throw new Error(data.error || data.message || `HTTP ${res.status} — ${JSON.stringify(data)}`)
   return data.url
 }
