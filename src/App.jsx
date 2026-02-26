@@ -8,6 +8,7 @@ import HistoryPage from './pages/HistoryPage'
 import Profile from './pages/Profile'
 import Purchase from './pages/Purchase'
 import PurchaseSuccess from './pages/PurchaseSuccess'
+import AuthCallback from './pages/AuthCallback'
 import Result from './pages/Result'
 import { useAuth } from './contexts/AuthContext'
 
@@ -25,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/result" element={<Result />} />
         <Route path="/app" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
