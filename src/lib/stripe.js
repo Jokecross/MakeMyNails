@@ -4,7 +4,7 @@ const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
 export const PACKS = [
   {
     id: 'pack_starter',
-    name: 'Starter',
+    name: 'Découverte',
     price: 4.99,
     credits: 5,
     pricePerCredit: 1.00,
@@ -12,7 +12,7 @@ export const PACKS = [
   },
   {
     id: 'pack_regular',
-    name: 'Regular',
+    name: 'Régulière',
     price: 9.99,
     credits: 15,
     pricePerCredit: 0.67,
