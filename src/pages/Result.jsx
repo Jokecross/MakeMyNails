@@ -346,7 +346,7 @@ export default function Result() {
             </button>
           </div>
 
-          <Button onClick={() => navigate('/onboarding')} className="w-full flex items-center justify-center gap-2">
+          <Button onClick={() => navigate(isAuthenticated ? '/app' : '/onboarding')} className="w-full flex items-center justify-center gap-2">
             <RotateCcw className="w-4 h-4" />
             {t('result.tryAnother')}
           </Button>
