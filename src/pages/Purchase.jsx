@@ -27,7 +27,7 @@ export default function Purchase() {
       navigate('/app')
     } catch (err) {
       console.error(err)
-      alert(t('purchasePage.purchaseError'))
+      alert('Erreur: ' + (err?.message || JSON.stringify(err)))
     } finally {
       setLoading(null)
     }
@@ -45,7 +45,7 @@ export default function Purchase() {
       navigate('/app')
     } catch (err) {
       console.error(err)
-      alert(t('purchasePage.subscribeError'))
+      alert('Erreur: ' + (err?.message || JSON.stringify(err)))
     } finally {
       setLoading(null)
     }
