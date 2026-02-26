@@ -5,7 +5,7 @@ import { useAuth } from './AuthContext'
 
 const CreditContext = createContext(null)
 
-const FREE_CREDITS = 3
+const FREE_CREDITS = 1
 
 export function CreditProvider({ children }) {
   const { user, profile, refreshProfile } = useAuth()
