@@ -75,7 +75,7 @@ export default function PurchaseSuccess() {
           transition={{ delay: 0.5 }}
           className="space-y-3"
         >
-          <Button onClick={() => navigate('/onboarding')} className="w-full">
+          <Button onClick={() => navigate('/app')} className="w-full">
             {t('purchaseSuccess.cta')}
           </Button>
           <p className="text-xs text-brown-light/40">
