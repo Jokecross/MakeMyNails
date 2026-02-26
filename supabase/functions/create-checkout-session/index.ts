@@ -8,10 +8,10 @@ const corsHeaders = {
 }
 
 const PRICE_MAP: Record<string, string> = {
-  pack_starter:  Deno.env.get('STRIPE_PRICE_STARTER')  ?? '',
-  pack_regular:  Deno.env.get('STRIPE_PRICE_REGULAR')  ?? '',
-  pack_addict:   Deno.env.get('STRIPE_PRICE_ADDICT')   ?? '',
-  sub_premium:   Deno.env.get('STRIPE_PRICE_PREMIUM')  ?? '',
+  pack_starter:  Deno.env.get('STRIPE_PRICE_DECOUVERTE') ?? '',
+  pack_regular:  Deno.env.get('STRIPE_PRICE_REGULIERE')  ?? '',
+  pack_addict:   Deno.env.get('STRIPE_PRICE_ADDICT')     ?? '',
+  sub_premium:   Deno.env.get('STRIPE_PRICE_PREMIUM')    ?? '',
 }
 
 serve(async (req) => {
