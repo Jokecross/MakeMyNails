@@ -150,11 +150,11 @@ export default function Purchase() {
             >
               <button
                 onClick={() => setTab('subscription')}
-                className="w-full mt-2 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/50 rounded-3xl p-5 text-left hover:shadow-md transition-all group"
+                className="w-full mt-2 bg-gradient-to-r from-nude-light to-beige/20 border border-nude-dark/20 rounded-3xl p-5 text-left hover:shadow-md transition-all group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm shadow-amber-200">
-                    <Crown className="w-5 h-5 text-white" />
+                  <div className="w-11 h-11 bg-gradient-to-br from-beige-dark to-brown rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm shadow-brown/20">
+                    <Crown className="w-5 h-5 text-offwhite" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-0.5">
@@ -163,7 +163,7 @@ export default function Purchase() {
                     <p className="text-xs text-brown-light/60">{t('purchasePage.premiumTeaserDesc')}</p>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-semibold text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-brown bg-nude px-2 py-0.5 rounded-full">
                       -40%
                     </span>
                   </div>
@@ -183,8 +183,8 @@ export default function Purchase() {
 
               <div className="relative">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/20">
-                    <Crown className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-beige to-beige-dark rounded-2xl flex items-center justify-center shadow-lg shadow-beige-dark/30">
+                    <Crown className="w-6 h-6 text-brown" />
                   </div>
                   <div>
                     <h2 className="font-heading text-2xl font-bold">Premium</h2>
@@ -200,7 +200,7 @@ export default function Purchase() {
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Zap className="w-4 h-4 text-amber-300" />
+                      <Zap className="w-4 h-4 text-beige" />
                     </div>
                     <div>
                       <p className="text-sm font-medium">{t('purchasePage.genPerMonth')}</p>
@@ -209,7 +209,7 @@ export default function Purchase() {
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Sparkles className="w-4 h-4 text-amber-300" />
+                      <Sparkles className="w-4 h-4 text-beige" />
                     </div>
                     <div>
                       <p className="text-sm font-medium">{t('purchasePage.emmaUnlimited')}</p>
@@ -218,7 +218,7 @@ export default function Purchase() {
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-7 h-7 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-amber-300" />
+                      <Check className="w-4 h-4 text-beige" />
                     </div>
                     <div>
                       <p className="text-sm font-medium">{t('purchasePage.priorityAccess')}</p>
@@ -236,7 +236,7 @@ export default function Purchase() {
                       <p className="text-sm font-semibold line-through text-offwhite/50">{t('purchasePage.packAddictPrice')}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-amber-300">Premium</p>
+                      <p className="text-xs text-beige">Premium</p>
                       <p className="text-sm font-bold text-offwhite">{t('purchasePage.premiumPrice')}</p>
                     </div>
                   </div>
@@ -245,7 +245,7 @@ export default function Purchase() {
                 <button
                   disabled={loading === 'sub_premium'}
                   onClick={handleSubscribe}
-                  className="w-full bg-gradient-to-r from-amber-400 to-orange-400 text-brown py-4 rounded-2xl font-bold text-base hover:from-amber-300 hover:to-orange-300 transition-all shadow-lg shadow-amber-500/20 disabled:opacity-70 flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-beige to-beige-dark text-brown py-4 rounded-2xl font-bold text-base hover:from-beige/90 hover:to-beige-dark/90 transition-all shadow-lg shadow-beige-dark/30 disabled:opacity-70 flex items-center justify-center gap-2"
                 >
                   {loading === 'sub_premium' ? (
                     <motion.div
