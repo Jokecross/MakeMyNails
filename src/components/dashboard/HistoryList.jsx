@@ -3,6 +3,7 @@ import { Sparkles, ChevronRight } from 'lucide-react'
 import { useCredits } from '../../contexts/CreditContext'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { optimizeImageUrl } from '../../lib/supabase'
 
 export default function HistoryList({ limit }) {
   const { history } = useCredits()

@@ -140,12 +140,33 @@ export function CreditProvider({ children }) {
     return data.publicUrl
   }, [user])
 
+  const compressImage = useCallback((blob, maxPx = 1200, quality = 0.78) => {
+    return new Promise((resolve) => {
+      const img = new Image()
+      const url = URL.createObjectURL(blob)
+      img.onload = () => {
+        URL.revokeObjectURL(url)
+        const ratio = Math.min(1, maxPx / Math.max(img.width, img.height))
+        const w = Math.round(img.width * ratio)
+        const h = Math.round(img.height * ratio)
+        const canvas = document.createElement('canvas')
+        canvas.width = w
+        canvas.height = h
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+        canvas.toBlob((compressed) => resolve(compressed || blob), 'image/jpeg', quality)
+      }
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(blob) }
+      img.src = url
+    })
+  }, [])
+
   const uploadBlobUrl = useCallback(async (blobUrl) => {
     if (!user || !blobUrl) return null
 
     try {
       const res = await fetch(blobUrl)
-      const blob = await res.blob()
+      const rawBlob = await res.blob()
+      const blob = await compressImage(rawBlob)
       const filePath = `${user.id}/before-${crypto.randomUUID()}.jpg`
 
       const { error } = await supabase.storage
@@ -159,7 +180,7 @@ export function CreditProvider({ children }) {
     } catch {
       return null
     }
-  }, [user])
+  }, [user, compressImage])
 
   return (
     <CreditContext.Provider value={{

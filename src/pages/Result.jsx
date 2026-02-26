@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Download, Share2, RotateCcw, ArrowLeft, Lock, Eye, Mail, User, KeyRound } from 'lucide-react'
@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useCredits } from '../contexts/CreditContext'
 import { useAuth } from '../contexts/AuthContext'
 import Button from '../components/common/Button'
+import { optimizeImageUrl } from '../lib/supabase'
 
 export default function Result() {
   const { id } = useParams()
@@ -25,6 +26,7 @@ export default function Result() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' })
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [beforeLoaded, setBeforeLoaded] = useState(false)
 
   useEffect(() => {
     if (isAuthenticated && locked) {
@@ -52,7 +54,7 @@ export default function Result() {
     )
   }
 
-  const originalImg = result.original_image_url || result.originalImage
+  const originalImg = optimizeImageUrl(result.original_image_url || result.originalImage)
   const resultImg = result.result_image_url || result.resultImage
 
   const handleSave = () => {
@@ -116,11 +118,18 @@ export default function Result() {
             transition={{ delay: 0.3 }}
             className="grid grid-cols-2 gap-2.5 mb-6"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-md aspect-[3/4]">
+            <div className="relative rounded-2xl overflow-hidden shadow-md aspect-[3/4] bg-nude/20">
               {originalImg ? (
-                <img src={originalImg} style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />
+                <>
+                  {!beforeLoaded && <div className="absolute inset-0 animate-pulse bg-nude/40" />}
+                  <img
+                    src={originalImg}
+                    onLoad={() => setBeforeLoaded(true)}
+                    style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', opacity: beforeLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                  />
+                </>
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-nude/20 font-heading text-xl text-brown-light/30">{t('result.before')}</div>
+                <div className="w-full h-full flex items-center justify-center font-heading text-xl text-brown-light/30">{t('result.before')}</div>
               )}
               <div className="absolute bottom-2 left-2 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">{t('result.before')}</div>
             </div>
@@ -276,11 +285,18 @@ export default function Result() {
         </motion.h1>
 
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="grid grid-cols-2 gap-2.5 mb-6">
-          <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
+          <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-nude/20">
             {originalImg ? (
-              <img src={originalImg} style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />
+              <>
+                {!beforeLoaded && <div className="absolute inset-0 animate-pulse bg-nude/40" />}
+                <img
+                  src={originalImg}
+                  onLoad={() => setBeforeLoaded(true)}
+                  style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', opacity: beforeLoaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+                />
+              </>
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-nude/20 font-heading text-xl text-brown-light/30">{t('result.before')}</div>
+              <div className="w-full h-full flex items-center justify-center font-heading text-xl text-brown-light/30">{t('result.before')}</div>
             )}
             <div className="absolute bottom-2 left-2 bg-black/40 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium">{t('result.before')}</div>
           </div>
