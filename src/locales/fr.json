@@ -381,9 +381,9 @@
     "emmaUnlimitedDetail": "Recommandations personnalisées sans limite",
     "priorityAccess": "Accès prioritaire",
     "priorityAccessDetail": "Générations plus rapides",
-    "comparedTo": "Comparé au pack Addict",
-    "packAddict": "Pack Addict",
-    "packAddictPrice": "19,99€ / 40 gén.",
+    "comparedTo": "Comparé au pack Regular",
+    "packAddict": "Pack Regular",
+    "packAddictPrice": "9,99€ / 15 gén.",
     "premiumPrice": "14,99€ / 50 gén.",
     "subscribeCta": "S'abonner maintenant",
     "cancelAnytime": "Annulable à tout moment. Sans engagement.",
@@ -392,6 +392,12 @@
     "securePayment": "Paiement sécurisé par Stripe",
     "purchaseError": "Erreur lors de l'achat. Veuillez réessayer.",
     "subscribeError": "Erreur lors de l'abonnement. Veuillez réessayer."
+  },
+  "purchaseSuccess": {
+    "title": "Paiement confirmé 💅",
+    "subtitle": "Tes manucures ont été ajoutées à ton compte. Tu peux maintenant essayer tous les styles que tu veux.",
+    "cta": "Créer ma première manucure →",
+    "redirect": "Redirection dans {{count}}s…"
   },
   "historyPage": {
     "title": "Historique"

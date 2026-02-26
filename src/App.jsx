@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import HistoryPage from './pages/HistoryPage'
 import Profile from './pages/Profile'
 import Purchase from './pages/Purchase'
+import PurchaseSuccess from './pages/PurchaseSuccess'
 import Result from './pages/Result'
 import { useAuth } from './contexts/AuthContext'
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/app/history" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>} />
         <Route path="/app/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/app/purchase" element={<ProtectedRoute><Purchase /></ProtectedRoute>} />
+        <Route path="/app/purchase/success" element={<ProtectedRoute><PurchaseSuccess /></ProtectedRoute>} />
         <Route path="/app/result/:id" element={<ProtectedRoute><Result /></ProtectedRoute>} />
       </Routes>
     </div>

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
+import { createCheckoutSession } from '../lib/stripe'
 import { useAuth } from './AuthContext'
 
 const CreditContext = createContext(null)
@@ -72,24 +73,15 @@ export function CreditProvider({ children }) {
   }, [user, credits, localCredits, refreshProfile, isSubscribed])
 
   const addCredits = useCallback(async (packId) => {
-    if (user) {
-      if (packId === 'sub_premium') {
-        const { data, error } = await supabase.rpc('activate_subscription')
-        if (error) throw error
-        await refreshProfile()
-        await fetchSubscription()
-        return data
-      }
+    if (!user) return
 
-      const { data, error } = await supabase.rpc('purchase_pack', { p_pack_id: packId })
-      if (error) throw error
-      await refreshProfile()
-      await fetchPurchases()
-      return data
-    }
-    const packCredits = { pack_decouverte: 5, pack_reguliere: 15, pack_addict: 40 }
-    setLocalCredits((c) => c + (packCredits[packId] || 0))
-  }, [user, refreshProfile, fetchPurchases, fetchSubscription])
+    const { data: { session } } = await supabase.auth.getSession()
+    const accessToken = session?.access_token
+    if (!accessToken) throw new Error('Not authenticated')
+
+    const url = await createCheckoutSession(packId, accessToken)
+    window.location.href = url
+  }, [user])
 
   const createVisualization = useCallback(async ({ shape, style, length, originalImageUrl }) => {
     if (user) {
@@ -198,6 +190,8 @@ export function CreditProvider({ children }) {
       uploadImage,
       uploadBlobUrl,
       fetchHistory,
+      fetchPurchases,
+      fetchSubscription,
     }}>
       {children}
     </CreditContext.Provider>

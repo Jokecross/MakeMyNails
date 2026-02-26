@@ -1,17 +1,18 @@
-const STRIPE_PUBLIC_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_test_placeholder'
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 export const PACKS = [
   {
-    id: 'pack_decouverte',
-    name: 'Découverte',
+    id: 'pack_starter',
+    name: 'Starter',
     price: 4.99,
     credits: 5,
     pricePerCredit: 1.00,
     type: 'one_time',
   },
   {
-    id: 'pack_reguliere',
-    name: 'Régulière',
+    id: 'pack_regular',
+    name: 'Regular',
     price: 9.99,
     credits: 15,
     pricePerCredit: 0.67,
@@ -35,16 +36,20 @@ export const SUBSCRIPTION = {
   credits: 50,
   pricePerCredit: 0.30,
   period: 'mois',
-  features: [
-    '50 générations / mois',
-    'Emma illimitée',
-    'Accès prioritaire',
-  ],
 }
 
-export async function createCheckoutSession(packId) {
-  console.log('Stripe checkout for pack:', packId)
-  alert('Intégration Stripe à configurer. Pack sélectionné : ' + packId)
-}
+export async function createCheckoutSession(packId, accessToken) {
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/create-checkout-session`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`,
+      'apikey': SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify({ packId }),
+  })
 
-export { STRIPE_PUBLIC_KEY }
+  const data = await res.json()
+  if (!res.ok) throw new Error(data.error || 'Checkout session creation failed')
+  return data.url
+}
