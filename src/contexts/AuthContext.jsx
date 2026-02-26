@@ -53,6 +53,14 @@ export function AuthProvider({ children }) {
     return data
   }, [])
 
+  const loginWithGoogle = useCallback(async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: window.location.origin + '/app' },
+    })
+    if (error) throw error
+  }, [])
+
   const logout = useCallback(async () => {
     await supabase.auth.signOut()
     setUser(null)
@@ -66,6 +74,7 @@ export function AuthProvider({ children }) {
       loading,
       login,
       signup,
+      loginWithGoogle,
       logout,
       isAuthenticated: !!user,
       refreshProfile: () => user && fetchProfile(user.id),

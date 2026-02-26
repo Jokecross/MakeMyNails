@@ -429,7 +429,9 @@
     "loading": "Chargement…",
     "loginCta": "Me connecter",
     "signupCta": "Créer mon compte gratuit",
-    "terms": "En créant un compte, tu acceptes nos conditions d'utilisation."
+    "terms": "En créant un compte, tu acceptes nos conditions d'utilisation.",
+    "orWith": "ou",
+    "googleCta": "Continuer avec Google"
   },
   "common": {
     "back": "Retour",

@@ -429,7 +429,9 @@
     "loading": "Loading…",
     "loginCta": "Log in",
     "signupCta": "Create my free account",
-    "terms": "By creating an account, you agree to our terms of service."
+    "terms": "By creating an account, you agree to our terms of service.",
+    "orWith": "or",
+    "googleCta": "Continue with Google"
   },
   "common": {
     "back": "Back",
