@@ -11,7 +11,7 @@ import HistoryList from '../components/dashboard/HistoryList'
 import { useCredits } from '../contexts/CreditContext'
 import { PACKS } from '../lib/stripe'
 
-function NoCreditsConversion() {
+function NoCreditsConversion({ onDismiss }) {
   const { t } = useTranslation()
   const { addCredits } = useCredits()
   const [loading, setLoading] = useState(null)
@@ -105,7 +105,14 @@ function NoCreditsConversion() {
           </div>
         </motion.button>
 
-        <p className="text-center text-xs text-brown-light/30">{t('purchasePage.securePayment')}</p>
+        <p className="text-center text-xs text-brown-light/30 mb-4">{t('purchasePage.securePayment')}</p>
+
+        <button
+          onClick={onDismiss}
+          className="w-full text-center text-xs text-brown-light/30 py-3 hover:text-brown-light/50 transition-colors"
+        >
+          {t('creditCheck.back')}
+        </button>
       </div>
     </div>
   )
@@ -114,10 +121,11 @@ function NoCreditsConversion() {
 export default function Dashboard() {
   const [chatOpen, setChatOpen] = useState(false)
   const [flowOpen, setFlowOpen] = useState(false)
+  const [conversionDismissed, setConversionDismissed] = useState(false)
   const { credits, isSubscribed } = useCredits()
 
-  if (credits === 0 && !isSubscribed) {
-    return <NoCreditsConversion />
+  if (credits === 0 && !isSubscribed && !conversionDismissed) {
+    return <NoCreditsConversion onDismiss={() => setConversionDismissed(true)} />
   }
 
   return (
