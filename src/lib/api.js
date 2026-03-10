@@ -1,32 +1,55 @@
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-async function blobUrlToBase64(blobUrl) {
-  const res = await fetch(blobUrl)
-  const blob = await res.blob()
+async function compressToBase64(source, maxPx = 1280, quality = 0.82) {
+  const blob = source.startsWith('data:')
+    ? await fetch(source).then((r) => r.blob())
+    : await fetch(source).then((r) => r.blob())
+
   return new Promise((resolve) => {
-    const reader = new FileReader()
-    reader.onloadend = () => resolve(reader.result)
-    reader.readAsDataURL(blob)
+    const img = new Image()
+    const url = URL.createObjectURL(blob)
+    img.onload = () => {
+      URL.revokeObjectURL(url)
+      const ratio = Math.min(1, maxPx / Math.max(img.width, img.height))
+      const w = Math.round(img.width * ratio)
+      const h = Math.round(img.height * ratio)
+      const canvas = document.createElement('canvas')
+      canvas.width = w
+      canvas.height = h
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+      canvas.toBlob(
+        (compressed) => {
+          const reader = new FileReader()
+          reader.onloadend = () => resolve(reader.result)
+          reader.readAsDataURL(compressed || blob)
+        },
+        'image/jpeg',
+        quality,
+      )
+    }
+    img.onerror = () => {
+      URL.revokeObjectURL(url)
+      const reader = new FileReader()
+      reader.onloadend = () => resolve(reader.result)
+      reader.readAsDataURL(blob)
+    }
+    img.src = url
   })
 }
 
 export async function generateNailVisualization({ photo, shape, style, length, customNote, inspirationPhoto, outfitPhoto }) {
   if (!photo) throw new Error('Aucune photo fournie. Veuillez reprendre depuis le début.')
-  const photoBase64 = photo.startsWith('data:') ? photo : await blobUrlToBase64(photo)
+  const photoBase64 = await compressToBase64(photo, 1280, 0.82)
 
   let inspirationBase64 = null
   if (inspirationPhoto) {
-    inspirationBase64 = inspirationPhoto.startsWith('data:')
-      ? inspirationPhoto
-      : await blobUrlToBase64(inspirationPhoto)
+    inspirationBase64 = await compressToBase64(inspirationPhoto, 1024, 0.80)
   }
 
   let outfitBase64 = null
   if (outfitPhoto) {
-    outfitBase64 = outfitPhoto.startsWith('data:')
-      ? outfitPhoto
-      : await blobUrlToBase64(outfitPhoto)
+    outfitBase64 = await compressToBase64(outfitPhoto, 1024, 0.80)
   }
 
   const res = await fetch(`${SUPABASE_URL}/functions/v1/generate-nails`, {
