@@ -406,11 +406,11 @@
     "readyTitle": "Tout est prêt !",
     "readyCredits": "Vous avez <strong>{{count}} crédit{{plural}}</strong> disponible{{plural}}.",
     "readyCost": "Cette visualisation utilisera 1 crédit.",
-    "noCreditsTitle": "Plus de crédits",
-    "noCreditsDesc": "Rechargez votre compte pour continuer à créer des visualisations.",
+    "noCreditsTitle": "Tu as adoré, non ?",
+    "noCreditsDesc": "Continue à explorer tous les styles qui te font envie. Choisis ton pack et relance.",
     "launch": "Lancer la visualisation",
     "buyCredits": "Acheter des crédits",
-    "back": "Retour"
+    "back": "Pas maintenant"
   },
   "styleGrid": {
     "title": "Inspirations"
