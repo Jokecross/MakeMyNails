@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { AlertCircle, RotateCcw } from 'lucide-react'
 import Welcome from '../components/onboarding/Welcome'
 import PhotoCapture from '../components/onboarding/PhotoCapture'
 import ShapeSelector from '../components/onboarding/ShapeSelector'
@@ -17,6 +18,7 @@ export default function Onboarding() {
   const { isAuthenticated } = useAuth()
   const { canGenerate, createVisualization, completeVisualization, uploadBlobUrl } = useCredits()
   const generationStarted = useRef(false)
+  const [generationError, setGenerationError] = useState(null)
 
   const preselected = location.state || {}
   const hasPreselection = preselected.preselectedShape || preselected.preselectedStyle || preselected.preselectedLength
@@ -84,7 +86,8 @@ export default function Onboarding() {
           })
         } catch (err) {
           console.error(err)
-          navigate(isAuthenticated ? '/app' : '/')
+          generationStarted.current = false
+          setGenerationError(err.message || 'Une erreur est survenue.')
         }
       })()
     }
@@ -130,7 +133,7 @@ export default function Onboarding() {
       })
     } catch (err) {
       console.error(err)
-      navigate(isAuthenticated ? '/app' : '/')
+      setGenerationError(err.message || 'Une erreur est survenue.')
     }
   }, [data, navigate, isAuthenticated, canGenerate, createVisualization, completeVisualization, uploadBlobUrl])
 
@@ -171,6 +174,41 @@ export default function Onboarding() {
   ]
 
   const progressPercent = ((step) / (steps.length - 1)) * 100
+
+  if (generationError) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-b from-offwhite to-nude-light/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center max-w-sm"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mx-auto mb-5">
+            <AlertCircle className="w-8 h-8 text-red-400" />
+          </div>
+          <h2 className="font-heading text-2xl font-bold text-brown mb-3">
+            Oups, une erreur est survenue.
+          </h2>
+          <p className="text-brown-light/60 text-sm mb-2 leading-relaxed">
+            La génération a échoué. Vérifie ta connexion et réessaie.
+          </p>
+          <p className="text-red-400/70 text-xs mb-8 font-mono bg-red-50 rounded-xl px-3 py-2">
+            {generationError}
+          </p>
+          <button
+            onClick={() => {
+              setGenerationError(null)
+              setStep(4)
+            }}
+            className="w-full bg-brown text-offwhite py-4 rounded-2xl font-semibold flex items-center justify-center gap-2 hover:bg-brown-light transition-colors"
+          >
+            <RotateCcw className="w-4 h-4" />
+            Réessayer
+          </button>
+        </motion.div>
+      </div>
+    )
+  }
 
   return (
     <div className="relative">
